@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/popups.css">
+    <title>Desafío N° 14</title>
+</head>
+<body>       
+    <div id="mensajeFlotante" class="sticky" >
+        <div class="sticky-header">
+            <div></div>
+            <strong>Mensaje</strong>
+        </div>
+        <div class="sticky-body">
+            <p id="idMsgSticky"></p>          
+        </div>        
+    </div>   
+    <div class="form_container" >            
+        <form>
+            <span class="form_title">
+                Validaciones Fallidas
+            </span>
+            <p class="erroMessageHistory" id="idErrores"></p>
+        </form>
+    </div>
+    <div class="form_container" >            
+        <form>
+            <span class="form_title">
+                Datos de contacto
+            </span>
+            <div class="form_content">
+                <div class="flex_container-multiColumn">
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idName"  id="idLabelName">Nombre:</label>
+                            <input type="text" autocomplete="off"  name="idName" id="idName" placeholder="Ingrese nombre">
+                        </div>
+                        <p class="erroMessage hidden" id="idNameMsgError"> </p>
+                        
+                    </div>
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idLastName"  id="idLabelLastName">Apellido:</label>
+                            <input type="text" autocomplete="off"  name="idLastName" id="idLastName" placeholder="Ingrese apellido">
+                        </div>
+                        <p class="erroMessage hidden" id="idLastNameMsgError"> </p>
+                    </div>
+                </div>
+                <div class="flex_container-multiColumn">
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label>Tipo de documento:</label> 
+                            <div  class="flex_container-row">
+                                <div class="flex_container-row">
+                                    <input type="radio"  autocomplete="off"  name="tipoDoc" id="idDni">
+                                    <label for="idDni"  id="idlabelDoc">Dni</label>                                 
+                                </div>                           
+                                <div class="flex_container-row">
+                                    <input type="radio" autocomplete="off"  name="tipoDoc" id="idCuil">
+                                    <label for="idCuil"  id="idLabelCuil">Cuil</label>                             
+                                </div>                              
+                            </div>                            
+                        </div>
+                        <div>
+                            <p class="erroMessage" id="idTipoDocMsgError"></p>
+                        </div>
+                    </div>
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idNumberDoc"  id="idLabelNumberDoc">Nro. de Documento:</label>
+                            <input type="text" disabled autocomplete="off"  name="idNumberDoc" id="idNumberDoc" placeholder="Ingrese Nro. de documento">
+                        </div>
+                        <p class="erroMessage" id="idNumberDocMsgError"></p>
+                    </div>
+                </div>                
+                <div class="flex_container-column">                        
+                    <label for="idAdress"  id="idAdressCategory">Dirección:</label>
+                    <textarea  autocomplete="off" name="idAdress" id="idAdress" placeholder="Ingrese dirección completa"></textarea>
+                    <p class="erroMessage" id="idAdressMsgError"></p>
+                </div>
+                <div class="flex_container-multiColumn">
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idCodigoPostal"  id="idLabelCodigoPostal">Código postal:</label>
+                            <input type="text" autocomplete="off" name="idCodigoPostal" id="idCodigoPostal" placeholder="Ingrese codigo postal">
+                        </div>
+                        <p class="erroMessage hidden" id="idCodigoPostalMsgError"> </p>                        
+                    </div>
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idEmail"  id="idLabelEmail">E-mail:</label>
+                            <input type="text" autocomplete="off" name="idEmail" id="idEmail" placeholder="Ingrese su e-mail">
+                        </div>
+                        <p class="erroMessage hidden" id="idEmailMsgError"> </p>
+                    </div>
+                </div>
+                <div class="flex_container-multiColumn">
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idEdad"  id="idLabelEdad">Edad:</label>
+                            <input type="number" autocomplete="off" name="idEdad" id="idEdad" placeholder="Ingrese edad">
+                        </div>
+                        <p class="erroMessage hidden" id="idEdadMsgError"> </p>                        
+                    </div>
+                    <div class="flex_container-column">
+                        <div class="flex_container-c">
+                            <label for="idNacionalidad"  id="idLabelNacionalidad">Nacionalidad:</label>
+                            <input type="text" autocomplete="off" name="idNacionalidad" id="idNacionalidad" placeholder="Ingrese ncionalidad">
+                        </div>
+                        <p class="erroMessage hidden" id="idNacionalidadMsgError"> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_formContainer">
+                <button type="submit" id="idBtnSend">Guardar Contacto</button>
+                <a href="../index.html">  
+                    <button class=" btn_danger" type="button" id="idBtnCancel">Resetear</button>
+                </a>
+                <button type="submit" id="idBtnShowMsg">Mostrar Contactos</button>
+            </div>
+        </form> 
+    </div>
+     <!-- Popup -->
+     <div id="popup" class="popup">
+        <div class="popup-contenido">
+            <p id="idPopupMsg"></p>
+            <button onclick="ocultarPopup()">Cerrar</button>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/validations.js"></script>
+    <script src="./js/stickyMsg.js"></script>
+    <!-- <script src="./js/validateSendContact.js"></script> -->
+</body>
+</html>
